@@ -47,9 +47,21 @@ async def get_board() -> Board:
 @router.post("/")
 async def put_board(move: player_move) -> list:
     if game_board["player_win"]:
-        raise HTTPException(status_code=404, detail="Game is already over!")
+        raise HTTPException(status_code=400, detail="Game is already over!")
+
     row = move.row
     col = move.col
+
+    if not (0 <= row <= 2 and 0 <= col <= 2):
+        raise HTTPException(
+            status_code=400, detail="row and col must be between 0 and 2"
+        )
+
+    if game_board["grid"][row][col] != " ":
+        raise HTTPException(
+            status_code=400, detail="This cell is already filled. Choose another one"
+        )
+
     player_turn = game_board["player_turn"]
     game_board["grid"][row][col] = player_turn
     won = winlogic(game_board["grid"])
