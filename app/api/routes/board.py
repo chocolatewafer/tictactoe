@@ -8,6 +8,7 @@ game_board = {"grid": [[" " for i in range(3)] for i in range(3)], "player_turn"
 
 class Board(BaseModel):
     grid: list[list[str]]
+    player_turn: str
 
 
 class player_move(BaseModel):
@@ -16,7 +17,7 @@ class player_move(BaseModel):
 
 
 @router.get("/")
-async def get_board():
+async def get_board() -> Board:
     return game_board
 
 
