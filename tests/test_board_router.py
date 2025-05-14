@@ -23,3 +23,12 @@ def test_first_player_move(client):
     response = client.post("/api/v1/board", json={"row": 2, "col": 2})
     assert response.status_code == 200
     assert response.json() == "player o added to 2,2"
+
+
+def test_reset_game_board(client):
+    response = client.post("/api/v1/board", json={"row": 2, "col": 2})
+    assert response.status_code == 200
+    assert response.json() == "player o added to 2,2"
+    response = client.post("api/v1/board/reset")
+    assert response.status_code == 200
+    assert response.json() == "new game created"
