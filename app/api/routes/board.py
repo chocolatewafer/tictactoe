@@ -27,7 +27,7 @@ async def get_board() -> Board:
 
 
 @router.post("/")
-async def put_board(move: player_move):
+async def put_board(move: player_move) -> list:
     row = move.row
     col = move.col
     player_turn = game_board["player_turn"]
@@ -36,7 +36,7 @@ async def put_board(move: player_move):
         game_board.update({"player_turn": "x"})
     else:
         game_board.update({"player_turn": "o"})
-    return f"player {player_turn} added to {row},{col}"
+    return [f"player {player_turn} added to {row},{col}", game_board]
 
 
 @router.post("/reset")
