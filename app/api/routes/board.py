@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
 router = APIRouter(prefix="/board", tags=["board"])
@@ -46,6 +46,8 @@ async def get_board() -> Board:
 
 @router.post("/")
 async def put_board(move: player_move) -> list:
+    if game_board["player_win"]:
+        raise HTTPException(status_code=404, detail="Game is already over!")
     row = move.row
     col = move.col
     player_turn = game_board["player_turn"]
