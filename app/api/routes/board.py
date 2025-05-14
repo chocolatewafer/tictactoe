@@ -3,12 +3,17 @@ from pydantic import BaseModel
 
 router = APIRouter(prefix="/board", tags=["board"])
 
-game_board = {"grid": [[" " for i in range(3)] for i in range(3)], "player_turn": "o"}
+game_board = {
+    "grid": [[" " for i in range(3)] for i in range(3)],
+    "player_turn": "o",
+    "player_win": None,
+}
 
 
 class Board(BaseModel):
     grid: list[list[str]]
     player_turn: str
+    player_win: str | None
 
 
 class player_move(BaseModel):
@@ -32,6 +37,10 @@ async def put_board(move: player_move):
 @router.post("/reset")
 async def new_board() -> str:
     game_board.update(
-        {"grid": [[" " for i in range(3)] for i in range(3)], "player_turn": "o"}
+        {
+            "grid": [[" " for i in range(3)] for i in range(3)],
+            "player_turn": "o",
+            "player_win": None,
+        }
     )
     return "new game created"

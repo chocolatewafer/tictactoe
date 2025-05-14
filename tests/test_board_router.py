@@ -16,6 +16,7 @@ def test_if_initial_state_is_empty_board(client):
     assert response.json() == {
         "grid": [[" " for i in range(3)] for i in range(3)],
         "player_turn": "o",
+        "player_win": None,
     }
 
 
