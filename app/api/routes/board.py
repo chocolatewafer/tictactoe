@@ -21,6 +21,24 @@ class player_move(BaseModel):
     col: int
 
 
+def winlogic(gameboard):
+    print(gameboard)
+    if gameboard[0][0] == gameboard[1][1] == gameboard[2][2] != " ":
+        return True
+
+    if gameboard[0][2] == gameboard[1][1] == gameboard[2][2] != " ":
+        return True
+
+    for i in range(3):
+        if gameboard[i][0] == gameboard[i][1] == gameboard[i][2] != " ":
+            return True
+
+    for i in range(3):
+        if gameboard[0][i] == gameboard[1][i] == gameboard[2][i] != " ":
+            return True
+    return False
+
+
 @router.get("/")
 async def get_board() -> Board:
     return game_board
@@ -32,6 +50,10 @@ async def put_board(move: player_move) -> list:
     col = move.col
     player_turn = game_board["player_turn"]
     game_board["grid"][row][col] = player_turn
+    won = winlogic(game_board["grid"])
+    if won:
+        game_board["player_win"] = player_turn
+        return [f"player {player_turn} Won!", game_board]
     if game_board["player_turn"] == "o":
         game_board.update({"player_turn": "x"})
     else:

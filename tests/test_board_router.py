@@ -1,7 +1,6 @@
 # from fastapi import FastAPI
 from app.main import app
 from fastapi.testclient import TestClient
-import json
 import pytest
 
 
@@ -58,4 +57,5 @@ def test_win_condition(client):
     response = client.post("/api/v1/board", json={"row": 0, "col": 2})
     assert response.status_code == 200
     response_text = response.json()
+    print(response_text)
     assert response_text[1]["player_win"] == "o"
