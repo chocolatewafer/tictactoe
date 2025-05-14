@@ -3,7 +3,7 @@ from pydantic import BaseModel
 
 router = APIRouter(prefix="/board", tags=["board"])
 
-game_board = {"grid": [[" " for i in range(3)] for i in range(3)]}
+game_board = {"grid": [[" " for i in range(3)] for i in range(3)], "player_turn": "o"}
 
 
 class Board(BaseModel):
