@@ -1,21 +1,18 @@
-FROM python:3.11.0
+FROM python:3.12.4
 
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
-COPY pyproject.toml ./
+COPY requirements.txt ./
 RUN pip install --upgrade pip && \
-    pip install uv && \
-    uv pip install -e .  # Installs dependencies using uv
+    pip install -r requirements.txt
 
-ARG DEV=false
-RUN if [ "$DEV" = "true" ] ; then uv pip install -e .[dev] ; fi
+# Copy entire project structure
+COPY . .
 
-COPY ./app/ ./
-COPY ./ml/model/ ./ml/model/
-
-ENV PYTHONPATH "${PYTHONPATH}:/app"
+# Set Python path to include project root
+ENV PYTHONPATH="/app"
 
 EXPOSE 8080
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080"]

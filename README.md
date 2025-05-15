@@ -76,37 +76,3 @@ Application parts are:
         └── README.md
         └── uv.lock
 ```
-
-## GCP
-
-Deploying inference service to Cloud Run
-
-### Authenticate
-
-1. Install `gcloud` cli
-2. `gcloud auth login`
-3. `gcloud config set project <PROJECT_ID>`
-
-### Enable APIs
-
-1. Cloud Run API
-2. Cloud Build API
-3. IAM API
-
-### Deploy to Cloud Run
-
-1. Run `gcp-deploy.sh`
-
-### Clean up
-
-1. Delete Cloud Run
-2. Delete Docker image in GCR
-
-## AWS
-
-Deploying inference service to AWS Lambda
-
-### Authenticate
-
-1. Install `awscli` and `sam-cli`
-2. `aws configure`
