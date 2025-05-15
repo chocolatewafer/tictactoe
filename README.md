@@ -2,17 +2,23 @@
 
 This is a FAST API project that serves tictactoe game using api calls
 
+- github: https://github.com/chocolatewafer/tictactoe
+
+- videolink:
+
+**mkdocs** are available too, clone and serve please.
+
 ## Development Requirements
 
 - Python 3.11+
-- Uv (Python Package Manager)
+
 
 ## Installation
 
 ```sh
 python -m venv venv
-source venv/bin/activate
-make install
+venv/bin/activate
+pip install -r requirements.txt
 ```
 
 ## Runnning Localhost
@@ -41,38 +47,40 @@ Files related to application are in the `app` or `tests` directories.
 Application parts are:
 
 ```
-    app
-    └── 📁tictactoe
-        └── 📁.github
-            └── 📁workflows
-                └── ci.yaml
-        └── 📁app
+└── 📁tictactoe
+        └── 📁hooks
+            └── pre-commit
+    └── 📁.github
+        └── 📁workflows
+            └── ci.yaml
+    └── 📁app
+        └── __init__.py
+        └── 📁api
             └── __init__.py
-            └── 📁api
+            └── 📁routes
                 └── __init__.py
-                └── 📁routes
-                    └── __init__.py
-                    └── api.py
-                    └── predictor.py
-            └── 📁core
-                └── __init__.py
-                └── config.py
-                └── errors.py
-                └── events.py
-                └── logging.py
-                └── paginator.py
-            └── main.py
-        └── 📁tests
+                └── api.py
+                └── board.py
+        └── 📁core
             └── __init__.py
-            └── test_pagination_behavior.py
-        └── .env.example
-        └── .gitignore
-        └── .pre-commit-config.yaml
-        └── .pylintrc
-        └── docker-compose.yml
-        └── Dockerfile
-        └── Makefile
-        └── pyproject.toml
-        └── README.md
-        └── uv.lock
+            └── config.py
+            └── logging.py
+        └── main.py
+    └── 📁docs
+        └── index.md
+    └── 📁tests
+        └── __init__.py
+        └── test_board_router.py
+    └── .dockerignore
+    └── .env
+    └── .gitignore
+    └── .pre-commit-config.yaml
+    └── .pylintrc
+    └── docker-compose.yml
+    └── Dockerfile
+    └── Makefile
+    └── mkdocs.yml
+    └── README.md
+    └── requirements.txt
+    └── uv.lock
 ```
