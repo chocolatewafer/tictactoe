@@ -4,7 +4,7 @@ This is a FAST API project that serves tictactoe game using api calls
 
 - github: https://github.com/chocolatewafer/tictactoe
 
-- videolink:
+- videolink: https://youtu.be/gHaDbhMKCCU
 
 **mkdocs** are available too, clone and serve please.
 
