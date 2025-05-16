@@ -7,7 +7,7 @@ I had to choose a project to implement for the fellowship to learn 12 Factor App
 
 ## More Thoughts
 
-During the beginning of this endavour I thought I would try making an AI app itself that was served using FAST API endpoints.
+During the beginning of this endeavour I thought I would try making an AI app itself that was served using FAST API endpoints.
 
 The problem was I did not know how to use FAST API (only know REST API and am familiar with Django) and had no idea on CI/CD and Dockerization. The task became daunting pretty soon once I started setting up the project.
 
