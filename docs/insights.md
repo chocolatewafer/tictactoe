@@ -3,14 +3,14 @@
 ## CookieCutter or CookieMonster
 I used cookiecutter template to make the initial project template. I believe I used ```https://github.com/arthurhenrique/cookiecutter-fastapi``` for this project.
 
-I just wanted to get started so I did not give this much thought. Turns out I should have. For a simple project you should try to keep the setupsimple too. It seemed this extra bloated template (for this simple tictactoe app anyways) took me a long time to get things figured out and going. I had to delete quite a lot of folders and changed so many files that I beleve it would have been way faster to set it up from scratch.
+I just wanted to get started so I did not give this much thought. Turns out I should have. For a simple project you should try to keep the setup simple too. It seemed this extra bloated template (for this simple tictactoe app anyways) took me a long time to get things figured out and going. I had to delete quite a lot of folders and changed so many files that I beleve it would have been way faster to set it up from scratch.
 
 I think templates save a lot of time; when you know exactly what you need and what you're about to do. Otherwise it can be a pain in the a-spiring mind and soul of this fragile computer geek.
 
 ## Life is a **test**
-I never before thought of writing tests and then making the app. I tried this the first time when writing code for fastapi. This was magic to me. I wrote tests first and then the app making me consider many things, that I would generally miss and would have to write later, on the first go itself.
+I had never tried writing tests before building the app, but I gave it a shot for the first time while working with FastAPI—and it felt like magic. Writing the tests first made me think about a lot of things I would usually miss and end up fixing later. This time, I caught those issues right from the start.
 
-I also did not have to rush back and forth between postman and django files to test a feature out. The tests would do it for me. Maybe it was because I was not actually using django this time but FastAPI hehe. But I would like to try this method out again.
+I also didn’t have to keep switching between Postman and Django files to check if a feature worked. The tests handled that for me. Maybe it felt smoother because I wasn’t using Django this time, but FastAPI instead—haha. Still, I really liked the experience and want to try this method again.
 
 ## D*cker
 Docker is a very impoortant tool for deployment. I get it. But man I couldn't get my head around why you need a dockerfile and then a docker-compose.yaml and again the cookiecutter template made it more complicated to understand whatever I was supposed to do to get a docker file ready.
